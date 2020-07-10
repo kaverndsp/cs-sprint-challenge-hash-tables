@@ -6,9 +6,20 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    route = []
 
+    # Hash Tickets
+    hash = {}
+
+    for ticket in tickets:
+        hash[ticket.source] = ticket.destination
+
+    # Add Origin ticket
+    route.append(hash["NONE"])
+
+    # Add ticket to route according to value of last ticket
+    for ticket in hash:
+        if ticket == "NONE":
+            continue
+        route.append(hash[route[-1]])
     return route

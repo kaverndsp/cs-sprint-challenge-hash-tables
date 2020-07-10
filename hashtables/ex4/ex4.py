@@ -1,8 +1,12 @@
 def has_negatives(a):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    result = []
+    # turn list into a dict
+    num_dict = {num: True for num in a}
+    # loop through a
+    for num in a:
+        # if the number is not negative, and the inverse of that number exists, append to result
+        if num > 0 and (num*-1) in num_dict:
+            result.append(num)
 
     return result
 
